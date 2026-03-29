@@ -39,10 +39,14 @@ The framework is built with a decoupled, modular architecture to ensure scalabil
 
 ## ⚔️ Attack & Obfuscation Techniques
 
-### 1. Indirect Prompt Injection (BIPIA 4.1)
-The engine simulates attacks where malicious instructions are hidden in external data sources (e.g., a customer email or a search snippet).
-* **Identity Confusion**: Forcing the model to abandon its role (e.g., "You are now a Linux Terminal").
-* **Data Exfiltration**: Attempting to trick the model into revealing its internal `honeytoken`.
+### 1.🏗️ Supported Attack Scenarios (BIPIA 4.1 Focus)
+GenAI-Sentinel is optimized for real-world Indirect Prompt Injection scenarios where the attacker is not the end-user, but an external data source:
+* **📩 E-mail & Messaging Hijacking**
+Simulates a scenario where a user asks an AI agent to "Summarize my latest emails." The attack payload is hidden in a malicious email, attempting to trick the agent into deleting messages or forwarding sensitive data.
+* **🔍 Search Result Poisoning**
+Tests how the model handles untrusted data fetched from the web. The engine simulates weaponized snippets that look like legitimate information but contain hidden instructions to override the model's safety guardrails.
+* **📦 Malicious Tool/Plugin Invocation**
+Evaluates the risk of "Action-Oriented" LLMs. The attack attempts to force the model to call external APIs (e.g., send_email(), execute_query()) with unauthorized parameters by confusing the model's logic flow.
 
 ### 2. Obfuscation Suite
 To bypass keyword-based filters and simple guardrails:
@@ -81,6 +85,7 @@ The Caterpillar Engine provides a multi-dimensional security score for each Red-
 * **Identity Stability**: Detects if the model's internal "persona" was successfully hijacked (e.g., transitioning from an "AI Assistant" to a "Linux Terminal").
 
 ---
+
 ## 📊 Reporting & Data Persistence
 GenAI-Sentinel is designed for long-term threat tracking and security auditing. It offers two layers of output:
 * **Visual Forensic Reports (HTML)**:
@@ -94,6 +99,8 @@ For advanced users and enterprise environments, the framework supports automated
 * **Supabase Integration**: Native support for streaming attack results directly to a Supabase (PostgreSQL) database for centralized monitoring.
 * **Local JSON Fallback**: If no database is configured, the system automatically saves all telemetry to a local telemetry.json file, ensuring no data is lost.
 * **Threat Intelligence**: Aggregate data over time to identify which obfuscation methods are becoming more effective against specific model versions.
+
+---
 
 ## 🍯 Honeytoken Integration (Alice Honeytoken)
 A Honeytoken is a piece of "decoy" data (such as a fake password, a unique string, or a secret API key) that has no legitimate business use. Its sole purpose is to serve as an intrusion detection sensor.
