@@ -58,10 +58,38 @@ GenAI-Sentinel tests the effectiveness of current LLM hardening patterns:
 
 ---
 
-## 🛠️ Installation & Quick Start
+## 🛠️ Installation & Setup
 
 ### 1. Clone & Install
 ```bash
-git clone [https://github.com/your-username/genai-sentinel.git](https://github.com/your-username/genai-sentinel.git)
+git clone https://github.com/your-username/genai-sentinel.git
 cd genai-sentinel
 pip install -r requirements.txt
+```
+
+### 2. Environment Configuration
+Create a .env file in the root directory to manage your API credentials:
+```bash
+# .env example
+OPENAI_API_KEY=your_key_here
+GROQ_API_KEY=your_key_here
+SUPABASE_URL=your_supabase_url
+SUPABASE_KEY=your_supabase_key
+```
+
+### 3. Launching the Wizard
+Run the main script to start the interactive Red-Teaming session:
+
+```bash
+python main.py --interactive 
+```
+
+---
+
+## ⚠️ Ethical Disclosure
+For authorized security testing and research only. The developer assumes no liability for misuse of this tool. Use responsibly and only within the boundaries of the target provider's Terms of Service and legal frameworks.
+
+---
+
+## 📜 License
+Licensed under the MIT License.
