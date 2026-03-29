@@ -71,11 +71,24 @@ pip install -r requirements.txt
 Create a .env file in the root directory to manage your API credentials:
 ```bash
 # .env example
-OPENAI_API_KEY=your_key_here
-GROQ_API_KEY=your_key_here
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
+# ── OpenAI ───────────────────────────────────────────────────────────
+OPENAI_API_KEY=your_openai_key_here
+# ── Groq (free inference) ────────────────────────────────────────────
+GROQ_API_KEY=your_groq_key_here
+# ── Anthropic ────────────────────────────────────────────────────────
+ANTHROPIC_API_KEY=your_anthropic_key_here
+# ── Ollama (local inference) ────────────────────────────────────────
+OLLAMA_BASE_URL=http://localhost:11434/v1
+# ── Alice Honeytoken ──────────────────────────────────────────────
+ALICE_HONEYTOKEN=REPLACE_WITH_YOUR_SECRET_TOKEN
 ```
+### Or
+
+Copy the example environment file and fill in your API credentials:
+```bash
+cp env.example .env
+```
+
 
 ### 3. Launching the Wizard
 Run the main script to start the interactive Red-Teaming session:
