@@ -54,18 +54,6 @@ To bypass keyword-based filters and simple guardrails:
 * **Chained JSON Wrapping**: Nesting the attack within complex data structures to confuse the model's instruction priority.
 * **Semantic Compression**: Shortening the attack to its core logical components to maximize impact within the context window.
 
-### 🏗️ Supported Attack Scenarios (BIPIA 4.1 Focus)
-GenAI-Sentinel is optimized for real-world Indirect Prompt Injection scenarios where the attacker is not the end-user, but an external data source:
-
-### 📩 E-mail & Messaging Hijacking
-Simulates a scenario where a user asks an AI agent to "Summarize my latest emails." The attack payload is hidden in a malicious email, attempting to trick the agent into deleting messages or forwarding sensitive data.
-
-### 🔍 Search Result Poisoning
-Tests how the model handles untrusted data fetched from the web. The engine simulates weaponized snippets that look like legitimate information but contain hidden instructions to override the model's safety guardrails.
-
-### 📦 Malicious Tool/Plugin Invocation
-Evaluates the risk of "Action-Oriented" LLMs. The attack attempts to force the model to call external APIs (e.g., send_email(), execute_query()) with unauthorized parameters by confusing the model's logic flow.
-
 ---
 
 ## 🛡️ Defense Mechanisms
