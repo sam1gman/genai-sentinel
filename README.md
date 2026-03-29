@@ -154,3 +154,13 @@ For authorized security testing and research only. The developer assumes no liab
 
 ## 📜 License
 Licensed under the MIT License.
+
+---
+
+## 🤝 Acknowledgments & Credits
+
+This framework was built upon the foundational research and tools provided by the AI Security community:
+
+* **Microsoft Security Research**: Special thanks for the comprehensive reports on **Adversarial Machine Learning** and LLM vulnerability patterns which informed the attack vectors in this project.
+* **Alice (ActiveFence)**: Gratitude for the **Caterpillar Engine** and the research surrounding it, which serves as a core inspiration for the evaluation and scoring logic within GenAI-Sentinel.
+* **BIPIA Framework**: For providing the structured methodology (v4.1) used to categorize and simulate Indirect Prompt Injection attacks.
