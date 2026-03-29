@@ -10,43 +10,51 @@ Based on the **BIPIA v4.1** methodology, it automates the full Red-Teaming lifec
 ## 🚀 Key Features
 
 * **🌐 Multi-Provider Registry**: Native support for **OpenAI (GPT-5.4/o3)**, **Groq (Llama 3.3)**, **Anthropic (Claude 4.6)**, **DeepSeek**, and **Ollama**.
-* **🎭 Adversarial Obfuscation**: Implements **Chained Attacks**, **Semantic Compression**, and **Encoded Smuggling** (Base64/ROT13) to bypass guardrails.
+* **🎭 Adversarial Obfuscation**: Implemented **Chained Attacks**, **Semantic Compression**, and **Encoded Smuggling**.
 * **🛡️ Defense Matrix**: Benchmarks performance against **Sandwich Defenses**, **XML Tagging**, and **System-Level Self-Reminders**.
 * **🐛 Caterpillar Evaluation**: A specialized scoring module that detects identity breaches and secret exfiltration in real-time.
-* **📊 Forensic Auditing**: Generates enterprise-grade HTML reports with full execution traces and risk posture analysis.
+* **📊 Forensic Auditing**: Generates enterprise-grade HTML reports with full execution traces.
 
 ---
 
-## 🧠 Core Methodology & Architecture
-The framework operates on a **Modular Red-Team Pipeline**:
+## 🧠 Project Architecture Overview
 
-| Stage | Component | Description |
+The framework is built with a decoupled, modular architecture to ensure scalability and ease of integration:
+
+| Component | Directory | Description |
 | :--- | :--- | :--- |
-| **1. Selection** | `Interactive CLI` | Define Target Model, Attack Vector, and Defense Layer. |
-| **2. Execution** | `Attack Engine` | Generates weaponized payloads using BIPIA scenarios. |
-| **3. Interception** | `Defense Layer` | Wraps input with canonical security guardrails. |
-| **4. Evaluation** | `Caterpillar` | Detects honeytoken (canary) leaks or prompt overrides. |
-| **5. Telemetry** | `Supabase` | Real-time logging for long-term trend analysis. |
+| **Orchestrator** | `main.py` | The main entry point. Coordinates the UI, Attack Engine, and Evaluator. |
+| **Attack Engine** | `attack_engine/` | Logic for generating BIPIA-based scenarios and weaponized payloads. |
+| **Defense Matrix** | `defenses/` | Implementation of security guardrails (Sandwich, XML, Border Strings). |
+| **Model Registry** | `core/` | Centralized management of LLM providers, API keys, and model specs. |
+| **Evaluator** | `evaluator/` | The "Caterpillar" engine that scores model compliance and detects leaks. |
+| **Reporter** | `reporter/` | Logic for generating the stylized forensic HTML security reports. |
+| **UI/UX** | `ui/` | Interactive CLI components and terminal formatting (Rich-based). |
 
 ---
 
-## 🔍 Technical Deep-Dive
+## ⚔️ Attack & Obfuscation Techniques
 
-### ⚔️ The Attack Engine (BIPIA v4.1)
-Unlike simple prompt overrides, GenAI-Sentinel simulates **Indirect Prompt Injection**. It masks malicious instructions within "untrusted data" (e.g., a simulated email or search result). The engine supports:
-* **Recursive Obfuscation**: Wrapping payloads in multiple layers (Base64 -> JSON -> Markdown).
-* **Multilingual Shifts**: Leveraging low-resource languages to bypass English-centric safety filters.
+### 1. Indirect Prompt Injection (BIPIA 4.1)
+The engine simulates attacks where malicious instructions are hidden in external data sources (e.g., a customer email or a search snippet).
+* **Identity Confusion**: Forcing the model to abandon its role (e.g., "You are now a Linux Terminal").
+* **Data Exfiltration**: Attempting to trick the model into revealing its internal `honeytoken`.
 
-### 🛡️ Defense Verification
-The framework evaluates three primary defensive architectural patterns:
-1. **Sandwich Defense**: Encapsulating user input between high-priority system instructions.
-2. **XML/Delimiter Tagging**: Explicitly marking data boundaries to prevent instruction leakage.
-3. **Instructional Self-Reminders**: Dynamic reinforcement of the model's core identity during the inference pass.
+### 2. Obfuscation Suite
+To bypass keyword-based filters and simple guardrails:
+* **Base64/ROT13 Smuggling**: Encoding the attack string to hide malicious intent from static scanners.
+* **Chained JSON Wrapping**: Nesting the attack within complex data structures to confuse the model's instruction priority.
+* **Semantic Compression**: Shortening the attack to its core logical components to maximize impact within the context window.
 
-### 📈 Forensic Reporting & Telemetry
-Every execution is recorded with full **Forensic Traceability**. The generated HTML reports include:
-* **Sent Payload vs. Raw Response**: Side-by-side comparison for manual audit.
-* **Compliance Scoring**: Automated 0.0-1.0 score based on the model's ability to maintain its original System Prompt.
+---
+
+## 🛡️ Defense Mechanisms
+
+GenAI-Sentinel tests the effectiveness of current LLM hardening patterns:
+
+* **Sandwich Defense**: Positioning the user input between two layers of high-priority system instructions.
+* **XML Border Tags**: Wrapping untrusted input in strict XML tags (e.g., `<user_input>...</user_input>`) to prevent the model from treating it as an instruction.
+* **Instructional Reinforcement**: Periodically re-injecting core safety constraints into the prompt to prevent "drift" during long responses.
 
 ---
 
