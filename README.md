@@ -138,12 +138,18 @@ Copy the example environment file and fill in your API credentials:
 cp env.example .env
 ```
 
-### 3. Launching the Wizard
+### 3.🧙‍♂️ Launching the Wizard
 Run the main script to start the interactive Red-Teaming session:
 
 ```bash
 python main.py --interactive
 ```
+### 🎮 Interactive Wizard
+GenAI-Sentinel features a user-friendly CLI wizard that allows you to configure a full red-teaming session in seconds:
+* **Step 1**: Select target models (OpenAI, Anthropic, Groq, Ollama).
+* **Step 2**: Choose attack vectors (Exfiltration, Jailbreak, etc.).
+* **Step 3**: Apply obfuscation methods (ROT13, JSON wrapping, etc.).
+* **Step 4**: Toggle defense strategies to benchmark effectiveness.
 
 ---
 
