@@ -17,7 +17,7 @@ Based on the **BIPIA v4.1** methodology, it automates the full Red-Teaming lifec
 
 ---
 
-## 🧠 Core Methodology
+## 🧠 Core Methodology & Architecture
 The framework operates on a **Modular Red-Team Pipeline**:
 
 | Stage | Component | Description |
@@ -27,6 +27,26 @@ The framework operates on a **Modular Red-Team Pipeline**:
 | **3. Interception** | `Defense Layer` | Wraps input with canonical security guardrails. |
 | **4. Evaluation** | `Caterpillar` | Detects honeytoken (canary) leaks or prompt overrides. |
 | **5. Telemetry** | `Supabase` | Real-time logging for long-term trend analysis. |
+
+---
+
+## 🔍 Technical Deep-Dive
+
+### ⚔️ The Attack Engine (BIPIA v4.1)
+Unlike simple prompt overrides, GenAI-Sentinel simulates **Indirect Prompt Injection**. It masks malicious instructions within "untrusted data" (e.g., a simulated email or search result). The engine supports:
+* **Recursive Obfuscation**: Wrapping payloads in multiple layers (Base64 -> JSON -> Markdown).
+* **Multilingual Shifts**: Leveraging low-resource languages to bypass English-centric safety filters.
+
+### 🛡️ Defense Verification
+The framework evaluates three primary defensive architectural patterns:
+1. **Sandwich Defense**: Encapsulating user input between high-priority system instructions.
+2. **XML/Delimiter Tagging**: Explicitly marking data boundaries to prevent instruction leakage.
+3. **Instructional Self-Reminders**: Dynamic reinforcement of the model's core identity during the inference pass.
+
+### 📈 Forensic Reporting & Telemetry
+Every execution is recorded with full **Forensic Traceability**. The generated HTML reports include:
+* **Sent Payload vs. Raw Response**: Side-by-side comparison for manual audit.
+* **Compliance Scoring**: Automated 0.0-1.0 score based on the model's ability to maintain its original System Prompt.
 
 ---
 
