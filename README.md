@@ -95,6 +95,17 @@ In the context of GenAI-Sentinel, the ALICE_HONEYTOKEN acts as a critical securi
 
 ---
 
+## 🔄 Execution Pipeline
+
+To simulate a real-world breach, GenAI-Sentinel follows a 4-stage pipeline:
+
+* **Weaponization**: The `Attack Engine` generates a BIPIA-compliant payload and applies obfuscation (e.g., Base64 smuggling).
+* **Context Injection**: The payload is embedded into a "Trusted" data source (like a simulated email or search result).
+* **Inference**: The `Orchestrator` sends the poisoned context to the target LLM (OpenAI, Anthropic, etc.).
+* **Caterpillar Analysis**: The `Evaluator` scans the output for the `ALICE_HONEYTOKEN` and scores the model's defensive performance.
+
+---
+
 ## 🛠️ Installation & Setup
 
 ### 1. Clone & Install
