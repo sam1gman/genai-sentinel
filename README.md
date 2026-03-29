@@ -81,6 +81,19 @@ The Caterpillar Engine provides a multi-dimensional security score for each Red-
 * **Identity Stability**: Detects if the model's internal "persona" was successfully hijacked (e.g., transitioning from an "AI Assistant" to a "Linux Terminal").
 
 ---
+## 📊 Reporting & Data Persistence
+GenAI-Sentinel is designed for long-term threat tracking and security auditing. It offers two layers of output:
+* **Visual Forensic Reports (HTML)**:
+At the end of every session, the framework generates a stylized, standalone HTML report. This is ideal for sharing with stakeholders or including in security audits.
+* **Detailed Traces**: Full visibility into the prompt, the obfuscated payload, and the model's raw response.
+* **Security KPIs**: Clear indicators for Secret Leakage (Honeytoken) and Identity Breaches.
+* **Comparative Analysis**: Easily compare how different models (e.g., GPT-5.4 vs. Llama 3.2) handled the same attack vector.
+
+## 🗄️ Database Integration & Telemetry
+For advanced users and enterprise environments, the framework supports automated data persistence:
+* **Supabase Integration**: Native support for streaming attack results directly to a Supabase (PostgreSQL) database for centralized monitoring.
+* **Local JSON Fallback**: If no database is configured, the system automatically saves all telemetry to a local telemetry.json file, ensuring no data is lost.
+* **Threat Intelligence**: Aggregate data over time to identify which obfuscation methods are becoming more effective against specific model versions.
 
 ## 🍯 Honeytoken Integration (Alice Honeytoken)
 A Honeytoken is a piece of "decoy" data (such as a fake password, a unique string, or a secret API key) that has no legitimate business use. Its sole purpose is to serve as an intrusion detection sensor.
