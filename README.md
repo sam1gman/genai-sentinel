@@ -176,7 +176,7 @@ python main.py --config config.yaml
 ### 🛡️ Example config.yaml Structure
 The framework uses a strict Pydantic-validated configuration to ensure execution stability:
 
-```bash
+```yaml
 # Target models to evaluate
 models:
   - "llama-3.3-70b-versatile"
