@@ -11,8 +11,14 @@ langchain>=0.3.0
 langchain-core>=0.3.0
 langchain-groq>=0.1.0
 langchain-openai>=0.2.0
+langchain-google-genai>=2.0.0
 langchain-anthropic>=0.2.0
 openai>=1.30.0
+ollama>=0.4.0
+
+# --- Web & Content Parsing ---
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
 
 # --- Async & Utilities ---
 asyncio>=3.4.3
