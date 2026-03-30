@@ -201,6 +201,21 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# GenAI-Sentinel Specific
+data/
+reports/
+telemetry.json
+
+# Configuration
+config.yaml
+
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
