@@ -216,7 +216,7 @@ honeytoken: "AKIAIOSFODNN7EXAMPLE"
 This framework was built upon the foundational research and tools provided by the AI Security community:
 
 * **Microsoft Security Research**: Special thanks for the comprehensive reports on **Adversarial Machine Learning** and LLM vulnerability patterns which informed the attack vectors in this project.
-* **Alice (ActiveFence)**: Gratitude for the **Caterpillar Engine** and the research surrounding it, which serves as a core inspiration for the evaluation and scoring logic within GenAI-Sentinel.
+* **Alice (ActiveFence)**:The development of GenAI-Sentinel was fueled by my interest in Adversarial AI, following Alice's (ActiveFence) research and their recent Cybersecurity CTF.
 * **BIPIA Framework**: For providing the structured methodology (v4.1) used to categorize and simulate Indirect Prompt Injection attacks.
 
 ---
