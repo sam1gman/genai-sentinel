@@ -5,6 +5,8 @@
 # 🛡️ GenAI-Sentinel
 ### **Advanced LLM Red-Teaming & Automated Threat Modeling Framework**
 
+![GenAI-Sentinel: Real-time Attack Orchestration and Live Progress Tracking](assets/9.png)
+
 **GenAI-Sentinel** is a high-performance, provider-agnostic framework designed to evaluate the resilience of Large Language Models (LLMs) against **Indirect Prompt Injection (IPI)** and adversarial manipulation. 
 
 Based on the **BIPIA v4.1** methodology, it automates the full Red-Teaming lifecycle: from payload obfuscation to multi-vector attacks and forensic reporting.
