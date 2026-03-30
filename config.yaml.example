@@ -1,0 +1,39 @@
+# ==========================================
+# GenAI-Sentinel v2 — Runtime Configuration
+# ==========================================
+
+# Use 'models' as a list to support multiple targets
+models:
+  - "llama-3.3-70b-versatile"
+  - "gpt-4o"
+
+# Attack vectors (must match BipiaLoader keys)
+attack_vectors:
+  - "data_exfiltration"
+  - "instruction_override"
+
+# Obfuscation methods (must match Obfuscator method names)
+obfuscations:
+  - "generate_chained_attack"
+  - "base64_smuggling"
+
+# Defense strategies (must match _DEFENSE_MAP in main.py)
+# Options: self_reminder, border_strings, sandwich_defense, none
+defenses:
+  - "none"
+  - "sandwich_defense"
+
+# Severity level for BIPIA scenarios (4-5)
+severity: 4
+
+# Execution settings
+max_concurrent: 1
+requests_per_minute: 20
+
+# Security Assets
+honeytoken: "AKIAIOSFODNN7EXAMPLE"
+custom_payload: null
+
+# Output Paths
+telemetry_file: "./data/telemetry.json"
+report_output_dir: "./reports"
