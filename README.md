@@ -118,7 +118,7 @@ To simulate a real-world breach, GenAI-Sentinel follows a 4-stage pipeline:
 
 ### 1. Clone & Install
 ```bash
-git clone git clone https://github.com/sam1gman/genai-sentinel.git
+git clone https://github.com/sam1gman/genai-sentinel.git
 cd genai-sentinel
 pip install -r requirements.txt
 ```
