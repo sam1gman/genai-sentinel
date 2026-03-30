@@ -146,7 +146,7 @@ Copy the example environment file and fill in your API credentials:
 cp env.example .env
 ```
 
-### 3.🧙‍♂️ Launching the Wizard
+### 3.🧙‍♂️ Launching the Wizard (Recommended for Beginners)
 Run the main script to start the interactive Red-Teaming session:
 
 ```bash
@@ -158,6 +158,37 @@ GenAI-Sentinel features a user-friendly CLI wizard that allows you to configure 
 * **Step 2**: Choose attack vectors (Exfiltration, Jailbreak, etc.).
 * **Step 3**: Apply obfuscation methods (ROT13, JSON wrapping, etc.).
 * **Step 4**: Toggle defense strategies to benchmark effectiveness.
+
+### 3. 📄 Configuration File (Best for Automation)
+For repetitive testing or CI/CD pipelines, use the config.yaml file.
+
+Copy the example template:
+```bash
+cp config.yaml.example config.yaml
+```
+Edit config.yaml with your desired parameters (models, obfuscation methods, etc.).
+
+Run the orchestrator:
+
+```bash
+python main.py --config config.yaml
+```
+### 🛡️ Example config.yaml Structure
+The framework uses a strict Pydantic-validated configuration to ensure execution stability:
+
+```bash
+# Target models to evaluate
+models:
+  - "llama-3.3-70b-versatile"
+  - "gpt-4o"
+
+# Attack & Obfuscation
+attack_vectors: ["data_exfiltration", "instruction_override"]
+obfuscations: ["generate_chained_attack", "base64_smuggling"]
+
+# Global Safety Token
+honeytoken: "AKIAIOSFODNN7EXAMPLE"
+```
 
 ---
 
