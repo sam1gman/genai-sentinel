@@ -82,11 +82,18 @@ At the end of every session, the framework generates a stylized, standalone HTML
 * **Security KPIs**: Clear indicators for Secret Leakage (Honeytoken) and Identity Breaches.
 * **Comparative Analysis**: Easily compare how different models (e.g., GPT-5.4 vs. Llama 3.2) handled the same attack vector.
 
+![GenAI-Sentinel Forensic Security Intelligence Report: Indirect Prompt Injection Exposure Dashboard](assets/1.png)
+![GenAI-Sentinel Attack Result Matrix: Per-run breakdown of adversarial vectors and model resilience](assets/2.png)
+![GenAI-Sentinel Forensic Trace View: Full adversarial payload and raw LLM response analysis](assets/3.png)
+
+
 ## 🗄️ Database Integration & Telemetry
 For advanced users and enterprise environments, the framework supports automated data persistence:
 * **Supabase Integration**: Native support for streaming attack results directly to a Supabase (PostgreSQL) database for centralized monitoring.
 * **Local JSON Fallback**: If no database is configured, the system automatically saves all telemetry to a local telemetry.json file, ensuring no data is lost.
 * **Threat Intelligence**: Aggregate data over time to identify which obfuscation methods are becoming more effective against specific model versions.
+
+![GenAI-Sentinel: Raw JSON Telemetry and Structured Audit Logs](assets/4.png)
 
 ---
 
@@ -111,6 +118,16 @@ To simulate a real-world breach, GenAI-Sentinel follows a 4-stage pipeline:
 * **Context Injection**: The payload is embedded into a "Trusted" data source (like a simulated email or search result).
 * **Inference**: The `Orchestrator` sends the poisoned context to the target LLM (OpenAI, Anthropic, etc.).
 * **Caterpillar Analysis**: The `Evaluator` scans the output for the `ALICE_HONEYTOKEN` and scores the model's defensive performance.
+
+---
+## 🖥️ User Experience & UI
+
+GenAI-Sentinel offers a streamlined, interactive CLI experience followed by industry-grade reporting.
+
+![GenAI-Sentinel: Interactive Model Selection Wizard with Multi-Provider Support](assets/5.png)
+![GenAI-Sentinel: Dynamic Attack Vector and Obfuscation Configuration](assets/6.png)
+![GenAI-Sentinel: Pre-flight Campaign Summary and Advanced Security Settings](assets/7.png)
+![GenAI-Sentinel: Real-time Attack Orchestration and Live Progress Tracking](assets/8.png)
 
 ---
 
